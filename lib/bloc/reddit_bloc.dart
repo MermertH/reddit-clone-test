@@ -1,13 +1,19 @@
-import 'package:bloc/bloc.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:equatable/equatable.dart';
+import 'package:reddit_clone_test/model/welcome.dart';
+import 'package:reddit_clone_test/services/api.dart';
 
 part 'reddit_event.dart';
 part 'reddit_state.dart';
 
 class RedditBloc extends Bloc<RedditEvent, RedditState> {
-  RedditBloc() : super(RedditInitial()) {
-    on<RedditEvent>((event, emit) {
-      // TODO: implement event handler
+  final RedditApiServices _redditApiServices;
+
+  RedditBloc(this._redditApiServices) : super(RedditLoadingState()) {
+    on<LoadApiEvent>((event, emit) async {
+      emit(RedditLoadingState());
+      final data = await _redditApiServices.getApiData();
+      emit(RedditLoadedState(data));
     });
   }
 }

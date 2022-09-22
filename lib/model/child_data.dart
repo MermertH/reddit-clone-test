@@ -54,7 +54,7 @@ class ChildData {
   dynamic contentCategories;
   bool? isSelf;
   String? subredditType;
-  int? created;
+  double? created;
   String? linkFlairType;
   int? wls;
   dynamic removedByCategory;
@@ -110,7 +110,7 @@ class ChildData {
   bool? stickied;
   String? url;
   int? subredditSubscribers;
-  int? createdUtc;
+  double? createdUtc;
   int? numCrossposts;
   Media? media;
   bool? isVideo;
@@ -244,7 +244,7 @@ class ChildData {
         pwls: json["pwls"],
         linkFlairCssClass: json["link_flair_css_class"],
         downs: json["downs"],
-        thumbnailHeight: json["thumbnail_height"] ?? null,
+        thumbnailHeight: json["thumbnail_height"] ?? 0,
         topAwardedType: json["top_awarded_type"],
         hideScore: json["hide_score"],
         name: json["name"],
@@ -255,7 +255,7 @@ class ChildData {
         ups: json["ups"],
         totalAwardsReceived: json["total_awards_received"],
         mediaEmbed: MediaEmbed.fromJson(json["media_embed"]),
-        thumbnailWidth: json["thumbnail_width"] ?? null,
+        thumbnailWidth: json["thumbnail_width"] ?? 0,
         authorFlairTemplateId: json["author_flair_template_id"],
         isOriginalContent: json["is_original_content"],
         userReports: List<dynamic>.from(json["user_reports"].map((x) => x)),
@@ -278,7 +278,7 @@ class ChildData {
         authorFlairRichtext:
             List<dynamic>.from(json["author_flair_richtext"].map((x) => x)),
         gildings: Gildings.fromJson(json["gildings"]),
-        postHint: json["post_hint?"] ?? null,
+        postHint: json["post_hint?"] ?? '',
         contentCategories: json["content_categories"],
         isSelf: json["is_self"],
         subredditType: json["subreddit_type"],
@@ -290,11 +290,11 @@ class ChildData {
         authorFlairType: json["author_flair_type"],
         domain: json["domain"],
         allowLiveComments: json["allow_live_comments"],
-        selftextHtml: json["selftext_html"] ?? null,
+        selftextHtml: json["selftext_html"] ?? '',
         likes: json["likes"],
         suggestedSort: json["suggested_sort"],
         bannedAtUtc: json["banned_at_utc"],
-        urlOverriddenByDest: json["url_overridden_by_dest"] ?? null,
+        urlOverriddenByDest: json["url_overridden_by_dest"] ?? '',
         viewCount: json["view_count"],
         archived: json["archived"],
         noFollow: json["no_follow"],
@@ -362,7 +362,7 @@ class ChildData {
         "pwls": pwls,
         "link_flair_css_class": linkFlairCssClass,
         "downs": downs,
-        "thumbnail_height": thumbnailHeight ?? null,
+        "thumbnail_height": thumbnailHeight ?? 0,
         "top_awarded_type": topAwardedType,
         "hide_score": hideScore,
         "name": name,
@@ -373,7 +373,7 @@ class ChildData {
         "ups": ups,
         "total_awards_received": totalAwardsReceived,
         "media_embed": mediaEmbed!.toJson(),
-        "thumbnail_width": thumbnailWidth ?? null,
+        "thumbnail_width": thumbnailWidth ?? 0,
         "author_flair_template_id": authorFlairTemplateId,
         "is_original_content": isOriginalContent,
         "user_reports": List<dynamic>.from(userReports!.map((x) => x)),
@@ -394,7 +394,7 @@ class ChildData {
         "author_flair_richtext":
             List<dynamic>.from(authorFlairRichtext!.map((x) => x)),
         "gildings": gildings!.toJson(),
-        "post_hint?": postHint ?? null,
+        "post_hint?": postHint ?? '',
         "content_categories": contentCategories,
         "is_self": isSelf,
         "subreddit_type": subredditType,
@@ -406,11 +406,11 @@ class ChildData {
         "author_flair_type": authorFlairType,
         "domain": domain,
         "allow_live_comments": allowLiveComments,
-        "selftext_html": selftextHtml ?? null,
+        "selftext_html": selftextHtml ?? '',
         "likes": likes,
         "suggested_sort": suggestedSort,
         "banned_at_utc": bannedAtUtc,
-        "url_overridden_by_dest": urlOverriddenByDest ?? null,
+        "url_overridden_by_dest": urlOverriddenByDest ?? '',
         "view_count": viewCount,
         "archived": archived,
         "no_follow": noFollow,

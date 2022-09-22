@@ -1,4 +1,10 @@
 class MediaEmbed {
+  String? content;
+  int? width;
+  bool? scrolling;
+  int? height;
+  String? mediaDomainUrl;
+
   MediaEmbed({
     this.content,
     this.width,
@@ -7,25 +13,19 @@ class MediaEmbed {
     this.mediaDomainUrl,
   });
 
-  String? content;
-  int? width;
-  bool? scrolling;
-  int? height;
-  String? mediaDomainUrl;
-
   factory MediaEmbed.fromJson(Map<String?, dynamic> json) => MediaEmbed(
-        content: json["content"] ?? null,
-        width: json["width"] ?? null,
-        scrolling: json["scrolling"] ?? null,
-        height: json["height"] ?? null,
-        mediaDomainUrl: json["media_domain_url"] ?? null,
+        content: json["content"] ?? '',
+        width: json["width"] ?? 0,
+        scrolling: json["scrolling"] ?? false,
+        height: json["height"] ?? 0,
+        mediaDomainUrl: json["media_domain_url"] ?? '',
       );
 
   Map<String?, dynamic> toJson() => {
-        "content": content ?? null,
-        "width": width ?? null,
-        "scrolling": scrolling ?? null,
-        "height": height ?? null,
-        "media_domain_url": mediaDomainUrl ?? null,
+        "content": content ?? '',
+        "width": width ?? 0,
+        "scrolling": scrolling ?? false,
+        "height": height ?? 0,
+        "media_domain_url": mediaDomainUrl ?? '',
       };
 }
