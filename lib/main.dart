@@ -18,12 +18,8 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.red,
       ),
-      home: MultiRepositoryProvider(
-        providers: [
-          RepositoryProvider(
-            create: (context) => RedditApiServices(),
-          ),
-        ],
+      home: RepositoryProvider(
+        create: (context) => RedditApiServices(),
         child: const MainPage(),
       ),
     );
