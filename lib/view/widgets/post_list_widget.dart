@@ -19,8 +19,6 @@ class PostListWidget extends StatelessWidget {
           floating: true,
           snap: true,
           toolbarHeight: 0,
-          //pinned: true,
-
           bottom: TabBar(
             labelColor: constantColors.defaultColors['black'],
             indicatorColor: constantColors.defaultColors['indicatorColor'],
