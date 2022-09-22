@@ -23,7 +23,7 @@ class CustomAppBarState extends State<CustomAppBar> {
   @override
   Widget build(BuildContext context) {
     return AppBar(
-      backgroundColor: Colors.white,
+      backgroundColor: constantColors.defaultColors['white'],
       elevation: 0,
       leading: IconButton(
         onPressed: () {},
@@ -40,8 +40,9 @@ class CustomAppBarState extends State<CustomAppBar> {
                 prefixIcon: const Icon(Icons.search),
                 contentPadding: const EdgeInsets.symmetric(vertical: 8),
                 labelText: 'Enter something',
-                enabledBorder: const OutlineInputBorder(
-                  borderSide: BorderSide(color: Colors.white),
+                enabledBorder: OutlineInputBorder(
+                  borderSide:
+                      BorderSide(color: constantColors.defaultColors['white']!),
                 ),
               ),
             ),

@@ -14,17 +14,16 @@ class PostListWidget extends StatelessWidget {
     return NestedScrollView(
       headerSliverBuilder: (context, innerBoxIsScrolled) => [
         SliverAppBar(
-          backgroundColor: Colors.white,
+          backgroundColor: constantColors.defaultColors['white'],
           elevation: 1,
           floating: true,
           snap: true,
-          stretch: true,
           toolbarHeight: 0,
           //pinned: true,
 
           bottom: TabBar(
             labelColor: constantColors.defaultColors['black'],
-            indicatorColor: Colors.red,
+            indicatorColor: constantColors.defaultColors['indicatorColor'],
             tabs: const [
               Tab(text: 'Home'),
               Tab(text: 'Popular'),
