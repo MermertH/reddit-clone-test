@@ -17,3 +17,10 @@ class RedditLoadedState extends RedditState {
   @override
   List<Object?> get props => [welcome];
 }
+
+class RedditLoadErrorState extends RedditState {
+  final String message = "An error occured";
+
+  @override
+  List<Object?> get props => [message];
+}

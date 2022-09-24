@@ -30,8 +30,13 @@ class MainPage extends StatelessWidget {
               if (state is RedditLoadedState) {
                 return PostListWidget(welcome: state.welcome);
               }
+              if (state is RedditLoadErrorState) {
+                return Center(
+                  child: Text(state.message),
+                );
+              }
               return const Center(
-                child: Text('an error occured'),
+                child: Text('Unexpected result...'),
               );
             },
           ),

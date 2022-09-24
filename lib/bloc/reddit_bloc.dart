@@ -12,8 +12,12 @@ class RedditBloc extends Bloc<RedditEvent, RedditState> {
   RedditBloc(this._redditApiServices) : super(RedditLoadingState()) {
     on<LoadApiEvent>((event, emit) async {
       emit(RedditLoadingState());
-      final data = await _redditApiServices.getApiData();
-      emit(RedditLoadedState(data));
+      final response = await _redditApiServices.getApiData();
+      if (response.statusCode == 200) {
+        emit(RedditLoadedState(welcomeFromJson(response.body)));
+      } else {
+        emit(RedditLoadErrorState());
+      }
     });
   }
 }
